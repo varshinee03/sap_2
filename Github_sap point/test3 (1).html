@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+    <title>Sap Calculator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 40px;
+            margin: 0 0 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        button {
+            display: inline-block;
+            background-color: #ff7e5f;
+            color: #ffffff;
+            padding: 10px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #feb47b;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1><b>SAP CALCULATOR</b></h1>
+
+    <h2><b>PAPER PRESENTATION</b></h2>
+    <table>
+        <tr>
+            <th>Paper Submitted</th>
+            <th>Presented Inside</th>
+            <th>Presented Outside</th>
+            <th>Presented Premier</th>
+            <th>Prize Won Inside</th>
+            <th>Prize Won Outside</th>
+            <th>Prize Won Premier</th>
+        </tr>
+        <tr>
+            <td><input type="number" min="0" max="10" id="paper1"></td>
+            <td><input type="number" min="0" max="10" id="paper2"></td>
+            <td><input type="number" min="0" max="10" id="paper3"></td>
+            <td><input type="number" min="0" max="10" id="paper4"></td>
+            <td><input type="number" min="0" max="10" id="paper5"></td>
+            <td><input type="number" min="0" max="10" id="paper6"></td>
+            <td><input type="number" min="0" max="10" id="paper7"></td>
+        </tr>
+    </table>
+   
+     <button type="button" onclick="calculatePaperPresentationSap()">Calculate</button>
+    <p>paper sap:
+        <span id="paperPresentationResult"></span>
+    </p>
+
+    <h2><b>PROJECT PRESENTATION</b></h2>
+    <table>
+        <tr>
+            <th>Project Submitted</th>
+            <th>Presented Inside</th>
+            <th>Presented Outside</th>
+            <th>Presented Premier</th>
+            <th>Prize Won Inside</th>
+            <th>Prize WonOutside</th>
+            <th>Prize Won Premier</th>
+        </tr>
+        <tr>
+            <td><input type="number" min="0" max="10" id="project1"></td>
+            <td><input type="number" min="0" max="10" id="project2"></td>
+            <td><input type="number" min="0" max="10" id="project3"></td>
+            <td><input type="number" min="0" max="10" id="project4"></td>
+            <td><input type="number" min="0" max="10" id="project5"></td>
+            <td><input type="number" min="0" max="10" id="project6"></td>
+            <td><input type="number" min="0" max="10" id="project7"></td>
+        </tr>
+    </table>
+    <button type="button" onclick="calculateProjectPresentationSap()">Calculate</button>
+    <p>project sap: <span id="projectPresentationResult"></span></p> 
+</div>
+
+<script>
+    function calculatePaperPresentationSap() {
+    let resultpaper = 0;
+
+    const paper1 = parseInt(document.getElementById('paper1').value) || 0;
+    const paper2 = parseInt(document.getElementById('paper2').value) || 0;
+    const paper3 = parseInt(document.getElementById('paper3').value) || 0;
+    const paper4 = parseInt(document.getElementById('paper4').value) || 0;
+    const paper5 = parseInt(document.getElementById('paper5').value) || 0;
+    const paper6 = parseInt(document.getElementById('paper6').value) || 0;
+    const paper7 = parseInt(document.getElementById('paper7').value) || 0;
+
+    resultpaper += paper1 * 2;
+    resultpaper += paper2 * 5;
+    resultpaper += paper3 * 10;
+    resultpaper += paper4 * 20;
+    resultpaper += paper5 * 20;
+    resultpaper += paper6 * 30;
+    resultpaper += paper7 * 50;
+
+    document.getElementById('paperPresentationResult').textContent = resultpaper;
+
+    // Store the result in local storage
+    localStorage.setItem('paperPresentationSap', resultpaper);
+}
+
+function calculateProjectPresentationSap() {
+    let resultproject = 0;
+
+    const project1 = parseInt(document.getElementById('project1').value) || 0;
+    const project2 = parseInt(document.getElementById('project2').value) || 0;
+    const project3 = parseInt(document.getElementById('project3').value) || 0;
+    const project4 = parseInt(document.getElementById('project4').value) || 0;
+    const project5 = parseInt(document.getElementById('project5').value) || 0;
+    const project6 = parseInt(document.getElementById('project6').value) || 0;
+    const project7 = parseInt(document.getElementById('project7').value) || 0;
+
+    resultproject += project1 * 5;
+    resultproject += project2 * 10;
+    resultproject += project3 * 15;
+    resultproject += project4 * 20;
+    resultproject += project5 * 20;
+    resultproject += project6 * 30;
+    resultproject += project7 * 50;
+
+    document.getElementById('projectPresentationResult').textContent = resultproject;
+    }
+
+
+</script>
+</body>
+</html>
